@@ -15,30 +15,33 @@ all_50_states = st.us_states
 def display_us_states():
   print("\n-----------------\n  50 US STATES \n-----------------\n")
 
-  States = all_50_state
+  States = all_50_states
 
-  for i in range(0,len(states)):
+  for i in range(0,len(States)):
     if i<9:
-      print('{}-\t{}'.format("0"+str(i+1),states[i]))
+      print('{}-\t{}'.format("0"+str(i+1),States[i]))
     elif i%10 ==0 or i==10:
       print("-----------------")
-      print('{}-\t{}'.format(i+1,states[i]))
+      print('{}-\t{}'.format(i+1,States[i]))
     else:
-      print('{}-\t{}'.format(i+1,stateS[i]))
+      print('{}-\t{}'.format(i+1,States[i]))
 
 
 #Used to search and show a list of states start with the same letter
 def states_alpha_search(first_letter):
-  first_letter = [first_letter.upper()]
+
+
+
+  first_letter = first_letter.upper()
   state_names = []
   num_of_states = 0
   states = all_50_states
 
   for state in states:
-    if state[0] ==first_letter:
+
+    if state[0] == first_letter:
       num_of_states += 1
       state_names.append(state)
-
   if num_of_states ==0:
     print(f"we did not find any state's name start with {first_letter}.")
   else:
@@ -52,7 +55,8 @@ def states_alpha_search(first_letter):
 def us_state_test(state_name):
   found = False
   states = all_50_states
-  state_name = state_name.capitalize()
+
+  state_name = state_name.title()
   for state in states:
     if state == state_name:
       found = True
@@ -92,8 +96,8 @@ def user_selection():
   elif user_input == 3:
     state = input("Enter a State Name: ")
     us_state_test(state)
-  elif user_Input == 4:
-    in_use =True
+  elif user_input == 4:
+    in_use = False
     print("Thank you and goodbye!")
   else:
     print("This is not an option.")
